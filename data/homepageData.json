@@ -1,0 +1,52 @@
+{
+    "title": "Automation Exercise",
+    "category": [
+        {   
+            "id": 1,
+            "name": "WOMEN"
+        },
+        {
+            "id": 2,
+            "name": "MEN"
+        },
+        {
+            "id": 3,
+            "name": "KIDS"
+        }
+    ],
+    "brands": [
+        {
+            "name": "POLO"
+        },
+        {
+            "name": "H&M"
+        },
+        {
+            "name": "MADAME"
+        },
+        {
+            "name": "MAST & HARBOUR"
+        },
+        {
+            "name": "BABYHUG"
+        },
+        {
+            "name": "ALLEN SOLLY JUNIOR"
+        },
+        {
+            "name": "KOOKIE KIDS"
+        },
+        {
+            "name": "BIBA"
+        }
+    ],
+    "featuresItemsNumber": 34,
+    "feturesItemsBody": [
+        {
+            "price": "Rs.",
+            "description": "",
+            "addToCartButton": "Add to cart",
+            "viewProductButton": "View Product"
+        }
+    ]
+}

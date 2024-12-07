@@ -1,0 +1,26 @@
+{
+    "navbarButtons": {
+            "home": "Home",
+            "products": "Products",
+            "cart": "Cart",
+            "signupLogin": " Signup / Login",
+            "testCases": "Test Cases",
+            "apiTesting": "API Testing",
+            "videoTutorials": "Video Tutorials",
+            "contactUs": "Contact us"
+        },
+    "navbarButtonNamesArray": [
+        "Home",
+        "Products",
+        "Cart",
+        "Signup / Login",
+        "Test Cases",
+        "API Testing",
+        "Video Tutorials",
+        "Contact us"
+    ],
+    "footerText": {
+            "subscriptionLabel": "Subscription",
+            "subcribtionTextDescription": "Get the most recent updates from our site and be updated your self..."
+    }
+}
