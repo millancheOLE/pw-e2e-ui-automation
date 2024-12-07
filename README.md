@@ -1,6 +1,6 @@
 ﻿# pw-e2e-ui-automation
 
-This repository contains end-to-end tests for a e-commerce website "https://automationexercise.com/" using Playwright and Typescript. This repository is for learning purposes only.
+This repository contains end-to-end tests for a e-commerce website "https://automationexercise.com/" using Playwright and Typescript. This repository is for practicing/learning purposes only.
 
 ## Installation
 
