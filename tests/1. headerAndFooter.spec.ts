@@ -2,7 +2,7 @@ import { test } from '../utilities/test-setup';
 import navigationData from '../data/navigationData.json'
 import { faker } from '@faker-js/faker';
 
-test.beforeEach(async ({ page, homepagePage: homepagePage }) => {
+test.beforeEach(async ({ page, homepagePage }) => {
   await page.goto(process.env.URL!);
   await homepagePage.validateThatHomepageIsDisplayed();
 });

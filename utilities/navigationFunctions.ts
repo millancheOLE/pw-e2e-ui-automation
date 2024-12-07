@@ -1,4 +1,4 @@
-import { Page, Locator, expect, test } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 import navigationData from '../data/navigationData.json';
 
 export class Navigation {
