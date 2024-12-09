@@ -69,36 +69,41 @@ export class HomePage {
      * @param homepageData: The data for the homepage.
      */
     async validateFeaturedProducts(homepageData: any) {
-        // Locate all child elements with class "col-sm-4" under the parent "features_items"
-        const childElements = this.page.locator('.features_items .col-sm-4');
+        // Locate all child elements within the featured products/items.
+        const listOfProductsLocator = this.page.locator('.features_items .col-sm-4');
 
-        // Get the count of child elements
-        const childCount = await childElements.count();
+        // Get the count of child elements.
+        const numberOfProductsInTheList = await listOfProductsLocator.count();
 
-        // Loop through each child element
-        for (let i = 0; i < childCount; i++) {
-            const child = childElements.nth(i);
+        // Verify all the products from the list of featured products/items.
+        for (let i = 0; i < numberOfProductsInTheList; i++) {
+            const product = listOfProductsLocator.nth(i);
 
-            // Locate the "productinfo text-center" inside the child
-            const productInfo = child.locator('.productinfo.text-center');
+            // Locate the product info block.
+            const productInfoBlockLocator = product.locator('.productinfo.text-center');
 
-            // Verify the image exists
-            await expect(productInfo.locator('img')).toBeVisible();
+            // Verify that the image is displayed.
+            await expect(productInfoBlockLocator.locator('img')).toBeVisible();
 
-            // Verify the <h2> element contains text "Rs."
-            await expect(productInfo.locator('h2')).toContainText('Rs.');
+            // Verify that the price is displayed and in right currency.
+            const productPrice = await productInfoBlockLocator.locator('h2').textContent();
+            expect(productPrice?.trim()).toContain(homepageData.featuresItemsBody[0].price);
 
-            // Verify the paragraph contains some string (non-empty text)
-            const paragraphText = await productInfo.locator('p').textContent();
-            expect(paragraphText?.trim().length).toBeGreaterThan(0);
+            // Verify that product description has some text.
+            const productDescription = await productInfoBlockLocator.locator('p').textContent();
+            expect(productDescription?.trim().length).toBeGreaterThan(0);
 
-            // Verify the button "Add to Cart" exists
-            await expect(productInfo.locator('button:has-text("Add to Cart")')).toBeVisible();
+            // Verify that the button "Add to Cart" is displayed and has the correct text.
+            const addToCartButton = productInfoBlockLocator.locator('a.add-to-cart');
+            await expect(addToCartButton).toBeVisible();
+            const addToCartButtonText = await addToCartButton.textContent();
+            expect(addToCartButtonText?.trim()).toBe(homepageData.featuresItemsBody[0].addToCartButton);
 
-            // Verify the button "View Product" exists outside "productinfo text-center"
-            await expect(child.locator('button:has-text("View Product")')).toBeVisible();
-
-            console.log(`Child element ${i + 1} verified successfully.`);
+            // Verify that the button "View Product" is displayed and has the correct text.
+            const viewProductButton = product.locator('ul.nav.nav-pills.nav-justified li a[href*="product_details"]');
+            await expect(viewProductButton).toBeVisible();
+            const viewProductButtonText = await viewProductButton.textContent();
+            expect(viewProductButtonText?.trim()).toBe(homepageData.featuresItemsBody[0].viewProductButton);
         }
     }
 }
